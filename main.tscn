@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cmkevbewulcpd"]
+
+[ext_resource type="Script" uid="uid://li2ut082kqwn" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c0c4ftmfboqs4" path="res://lm_studio.gd" id="1_ig7tw"]
+
+[node name="Main" type="Control" unique_id=1606261363]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 1155.0
+offset_bottom = 641.0
+script = ExtResource("1_0xm2m")
+
+[node name="ChatHistory" type="ScrollContainer" parent="." unique_id=611575084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -22.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="Messages" type="VBoxContainer" parent="ChatHistory" unique_id=1291168632]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ComposeBar" type="LineEdit" parent="." unique_id=743360972]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 560.0
+offset_right = 1007.0
+offset_bottom = 623.0
+
+[node name="SendButton" type="Button" parent="." unique_id=1432956871]
+layout_mode = 0
+offset_left = 1034.0
+offset_top = 552.0
+offset_right = 1123.0
+offset_bottom = 626.0
+
+[node name="LMStudio" type="Node" parent="." unique_id=2107777530]
+script = ExtResource("1_ig7tw")
