@@ -1,7 +1,6 @@
 extends Node
 class_name LMStudio
 
-
 # ============================================================
 # LM Studio connection settings
 # ============================================================
@@ -14,7 +13,7 @@ class_name LMStudio
 
 # Put your loaded model name here.
 # You can find it in LM Studio.
-@export var model: String = "gemma-4-e4b-uncensored-hauhaucs-aggressive"
+@export var model: String = "gemma-4-e4b-uncensored-hauhaucs-aggressive@q5_k_m"
 
 @export var timeout: float = 120.0
 

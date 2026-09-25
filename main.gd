@@ -9,6 +9,16 @@ extends Control
 
 
 func _ready() -> void:
+	# Makes bg transparent
+	var window = get_window()
+	window.borderless = true
+	# window.always_on_top = true
+	
+	# Match the game size to the primary monitor screen dimensions
+	var screen_id = window.current_screen
+	window.size = DisplayServer.screen_get_size(screen_id)
+	window.position = DisplayServer.screen_get_position(screen_id)
+	
 	print("")
 	print("================================")
 	print("MAIN CHAT UI STARTING")
