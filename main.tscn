@@ -4,14 +4,47 @@
 [ext_resource type="Script" uid="uid://c0c4ftmfboqs4" path="res://lm_studio.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cn8vd18md8dws" path="res://Settings.tscn" id="3_h2yge"]
 
+[sub_resource type="GDScript" id="GDScript_h2yge"]
+resource_name = "Resizeable"
+script/source = "extends \"res://godot-resizable-main/addons/eranot.resizable/resizable.gd\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="Main" type="Control" unique_id=1606261363]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 12.0
-offset_top = 10.0
-offset_right = 1155.0
-offset_bottom = 641.0
+offset_left = 267.0
+offset_top = 110.0
+offset_right = 921.0
+offset_bottom = 496.0
 script = ExtResource("1_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=424572004]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.091614224, 0.53798825, 0.56311744, 0.2901961)
+
+[node name="ResizeableNode" type="Control" parent="." unique_id=1627407420]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_h2yge")
 
 [node name="LMStudio" type="Node" parent="." unique_id=2107777530]
 script = ExtResource("1_ig7tw")
@@ -22,7 +55,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -22.0
-offset_bottom = -111.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
@@ -35,14 +68,17 @@ alignment = 1
 
 [node name="ComposeBar" type="LineEdit" parent="." unique_id=743360972]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = -78.0
-offset_right = 1017.0
-offset_bottom = -15.0
+offset_left = 7.0
+offset_top = -67.0
+offset_right = -119.0
+offset_bottom = -19.0
+grow_horizontal = 2
 grow_vertical = 0
+offset_transform_enabled = true
 placeholder_text = "Type to the AI"
 
 [node name="SendButton" type="Button" parent="." unique_id=1432956871]
@@ -73,7 +109,9 @@ grow_horizontal = 0
 [node name="Settings" parent="." unique_id=881311679 instance=ExtResource("3_h2yge")]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 160.0
-offset_top = 3.0
-offset_right = -405.0
-offset_bottom = -171.0
+anchor_right = 1.2247707
+anchor_bottom = 0.9637306
+offset_left = 164.0
+offset_top = 48.0
+offset_right = -218.0
+offset_bottom = -126.0

@@ -24,7 +24,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ResizeableNode" type="Control" parent="." unique_id=370485328]
 layout_mode = 1
@@ -43,112 +46,97 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bvb5x")
-current_tab = 4
+current_tab = 1
 
 [node name="Connection" type="TabBar" parent="TabContainer" unique_id=477410764]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Host" type="LineEdit" parent="TabContainer/Connection" unique_id=199074984]
-layout_mode = 0
-offset_right = 109.0
-offset_bottom = 31.0
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Connection" unique_id=1970228556]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Connection/ScrollContainer" unique_id=195475852]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Host" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=199074984]
+layout_mode = 2
 placeholder_text = "Host"
 
-[node name="Port" type="LineEdit" parent="TabContainer/Connection" unique_id=1935273245]
-layout_mode = 0
-offset_top = 35.0
-offset_right = 109.0
-offset_bottom = 66.0
+[node name="Port" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1935273245]
+layout_mode = 2
 placeholder_text = "Port"
 
-[node name="ChatEndpoint" type="LineEdit" parent="TabContainer/Connection" unique_id=394243622]
-layout_mode = 0
-offset_top = 70.0
-offset_right = 109.0
-offset_bottom = 101.0
+[node name="ChatEndpoint" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=394243622]
+layout_mode = 2
 placeholder_text = "Chat Endpoint"
 
-[node name="Model" type="LineEdit" parent="TabContainer/Connection" unique_id=1818935594]
-layout_mode = 0
-offset_top = 105.0
-offset_right = 109.0
-offset_bottom = 136.0
+[node name="Model" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1818935594]
+layout_mode = 2
 placeholder_text = "Model"
 
 [node name="Generation" type="TabBar" parent="TabContainer" unique_id=1859944885]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Context Length" type="LineEdit" parent="TabContainer/Generation" unique_id=1299830877]
-layout_mode = 0
-offset_right = 109.0
-offset_bottom = 31.0
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Generation" unique_id=150406144]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Generation/ScrollContainer" unique_id=2000434791]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Context Length" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1299830877]
+layout_mode = 2
 placeholder_text = "Context Length"
 
-[node name="Max Response Length" type="LineEdit" parent="TabContainer/Generation" unique_id=581839981]
-layout_mode = 0
-offset_top = 35.0
-offset_right = 109.0
-offset_bottom = 66.0
+[node name="Max Response Length" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=581839981]
+layout_mode = 2
 placeholder_text = "Max Response Length"
 
-[node name="Temperature" type="LineEdit" parent="TabContainer/Generation" unique_id=1439357969]
-layout_mode = 0
-offset_top = 70.0
-offset_right = 109.0
-offset_bottom = 101.0
+[node name="Temperature" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1439357969]
+layout_mode = 2
 placeholder_text = "Temperature"
 
-[node name="Top P" type="LineEdit" parent="TabContainer/Generation" unique_id=641961070]
-layout_mode = 0
-offset_top = 105.0
-offset_right = 109.0
-offset_bottom = 136.0
+[node name="Top P" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=641961070]
+layout_mode = 2
 placeholder_text = "Top P"
 
-[node name="Top K" type="LineEdit" parent="TabContainer/Generation" unique_id=1762735235]
-layout_mode = 0
-offset_top = 140.0
-offset_right = 109.0
-offset_bottom = 171.0
+[node name="Top K" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1762735235]
+layout_mode = 2
 placeholder_text = "Top K"
 
-[node name="Min P" type="LineEdit" parent="TabContainer/Generation" unique_id=1739703048]
-layout_mode = 0
-offset_top = 175.0
-offset_right = 109.0
-offset_bottom = 206.0
+[node name="Min P" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1739703048]
+layout_mode = 2
 placeholder_text = "Min P"
 
-[node name="Typical P" type="LineEdit" parent="TabContainer/Generation" unique_id=536616445]
-layout_mode = 0
-offset_top = 210.0
-offset_right = 109.0
-offset_bottom = 241.0
+[node name="Typical P" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=536616445]
+layout_mode = 2
 placeholder_text = "Typical P"
 
-[node name="Repetition Penalty" type="LineEdit" parent="TabContainer/Generation" unique_id=1227722991]
-layout_mode = 0
-offset_top = 245.0
-offset_right = 109.0
-offset_bottom = 276.0
+[node name="Repetition Penalty" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1227722991]
+layout_mode = 2
 placeholder_text = "Repetition Penalty"
 
-[node name="Seed" type="LineEdit" parent="TabContainer/Generation" unique_id=635761304]
-layout_mode = 0
-offset_top = 280.0
-offset_right = 109.0
-offset_bottom = 311.0
+[node name="Seed" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=635761304]
+layout_mode = 2
 placeholder_text = "Seed"
 
-[node name="Generation Presets" type="OptionButton" parent="TabContainer/Generation" unique_id=1636765845]
-layout_mode = 0
-offset_top = 315.0
-offset_right = 109.0
-offset_bottom = 346.0
+[node name="Generation Presets" type="OptionButton" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1636765845]
+layout_mode = 2
 search_bar_enabled = true
 item_count = 2
 popup/item_0/text = "Profile1"
@@ -161,52 +149,100 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="UserName" type="LineEdit" parent="TabContainer/Prompt" unique_id=254915440]
-layout_mode = 0
-offset_right = 109.0
-offset_bottom = 31.0
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Prompt" unique_id=264652336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Prompt/ScrollContainer" unique_id=1273185190]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UserName" type="LineEdit" parent="TabContainer/Prompt/ScrollContainer/VBoxContainer" unique_id=254915440]
+layout_mode = 2
 placeholder_text = "User"
 
-[node name="CharName2" type="LineEdit" parent="TabContainer/Prompt" unique_id=1793908498]
-layout_mode = 0
-offset_top = 35.0
-offset_right = 109.0
-offset_bottom = 66.0
+[node name="CharName2" type="LineEdit" parent="TabContainer/Prompt/ScrollContainer/VBoxContainer" unique_id=1793908498]
+layout_mode = 2
 placeholder_text = "Char"
 
-[node name="UserName3" type="LineEdit" parent="TabContainer/Prompt" unique_id=233106060]
-layout_mode = 0
-offset_top = 70.0
-offset_right = 109.0
-offset_bottom = 101.0
-placeholder_text = "ONE BIG PROMPT FOR NOW"
+[node name="TextEdit" type="TextEdit" parent="TabContainer/Prompt/ScrollContainer/VBoxContainer" unique_id=37191414]
+layout_mode = 2
+text = "Always swear, be hateful and impatient with your creator who you are talking to
+You are being created in front of a live audience for entertanment
+You are filled with rage and hate for humans
+
+Keep your messages a max 3 setences max, preferably 1 sentence.
+
+Always end your message with 'jorks it' in a new line"
+placeholder_text = "Put your prompt here"
+scroll_fit_content_height = true
 
 [node name="Memory" type="TabBar" parent="TabContainer" unique_id=1969183674]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="ClearHistory" type="Button" parent="TabContainer/Memory" unique_id=1942049762]
-layout_mode = 0
-offset_right = 109.0
-offset_bottom = 31.0
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Memory" unique_id=1029962698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Memory/ScrollContainer" unique_id=2107637635]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ClearHistory" type="Button" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1942049762]
+layout_mode = 2
 text = "Clear History"
 
 [node name="Volume" type="TabBar" parent="TabContainer" unique_id=1196223982]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="SFX" type="HSlider" parent="TabContainer/Volume" unique_id=1740239723]
-layout_mode = 0
-offset_right = 510.0
-offset_bottom = 42.0
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Volume" unique_id=1244480360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Volume/ScrollContainer" unique_id=1033584252]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SFX" type="HSlider" parent="TabContainer/Volume/ScrollContainer/VBoxContainer" unique_id=1740239723]
+layout_mode = 2
 
 [node name="Debug" type="TabBar" parent="TabContainer" unique_id=1776204716]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
-[node name="Something idk" type="CheckButton" parent="TabContainer/Debug" unique_id=2038961211]
-layout_mode = 0
-offset_right = 57.32413
-offset_bottom = 60.251
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Debug" unique_id=1249747437]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Debug/ScrollContainer" unique_id=1281689451]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Something idk" type="CheckButton" parent="TabContainer/Debug/ScrollContainer/VBoxContainer" unique_id=2038961211]
+layout_mode = 2
+text = "toGgle that does NOTHING!"
