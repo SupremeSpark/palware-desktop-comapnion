@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://li2ut082kqwn" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c0c4ftmfboqs4" path="res://lm_studio.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://cn8vd18md8dws" path="res://Settings.tscn" id="3_h2yge"]
 
 [node name="Main" type="Control" unique_id=1606261363]
 layout_mode = 3
@@ -70,10 +69,108 @@ offset_right = -25.0
 offset_bottom = 80.0
 grow_horizontal = 0
 
-[node name="Settings" parent="." unique_id=881311679 instance=ExtResource("3_h2yge")]
+[node name="SettingsSContainer" type="ScrollContainer" parent="." unique_id=269660375]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 160.0
-offset_top = 3.0
-offset_right = -405.0
-offset_bottom = -171.0
+anchor_left = 0.78000003
+anchor_right = 1.0
+offset_left = 0.45996094
+grow_horizontal = 0
+
+[node name="Settings" type="VBoxContainer" parent="SettingsSContainer" unique_id=276511795]
+layout_mode = 2
+
+[node name="Connection + Model" type="VBoxContainer" parent="SettingsSContainer/Settings" unique_id=2085828851]
+layout_mode = 2
+
+[node name="Host" type="LineEdit" parent="SettingsSContainer/Settings/Connection + Model" unique_id=1484314198]
+layout_mode = 2
+placeholder_text = "Host"
+
+[node name="Port" type="LineEdit" parent="SettingsSContainer/Settings/Connection + Model" unique_id=24491022]
+layout_mode = 2
+placeholder_text = "Port"
+
+[node name="ChatEndpoint" type="LineEdit" parent="SettingsSContainer/Settings/Connection + Model" unique_id=976582925]
+layout_mode = 2
+placeholder_text = "Chat Endpoint"
+
+[node name="Model" type="LineEdit" parent="SettingsSContainer/Settings/Connection + Model" unique_id=204540833]
+layout_mode = 2
+placeholder_text = "Model"
+
+[node name="Generation" type="VBoxContainer" parent="SettingsSContainer/Settings" unique_id=2031343548]
+layout_mode = 2
+
+[node name="Context Length" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=1262802247]
+layout_mode = 2
+placeholder_text = "Context Length"
+
+[node name="Max Response Length" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=659211509]
+layout_mode = 2
+placeholder_text = "Max Response Length"
+
+[node name="Temperature" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=136909835]
+layout_mode = 2
+placeholder_text = "Temperature"
+
+[node name="Top P" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=458290710]
+layout_mode = 2
+placeholder_text = "Top P"
+
+[node name="Top K" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=1742453739]
+layout_mode = 2
+placeholder_text = "Top K"
+
+[node name="Min P" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=519840997]
+layout_mode = 2
+placeholder_text = "Min P"
+
+[node name="Typical P" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=1556097859]
+layout_mode = 2
+placeholder_text = "Typical P"
+
+[node name="Repetition Penalty" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=1821664100]
+layout_mode = 2
+placeholder_text = "Repetition Penalty"
+
+[node name="Seed" type="LineEdit" parent="SettingsSContainer/Settings/Generation" unique_id=1576026689]
+layout_mode = 2
+placeholder_text = "Seed"
+
+[node name="Generation Presets" type="OptionButton" parent="SettingsSContainer/Settings/Generation" unique_id=1843516776]
+layout_mode = 2
+search_bar_enabled = true
+item_count = 2
+popup/item_0/text = "Profile1"
+popup/item_0/id = 0
+popup/item_1/text = "Profile2"
+popup/item_1/id = 1
+
+[node name="Prompt & Personality" type="VBoxContainer" parent="SettingsSContainer/Settings" unique_id=1096650028]
+layout_mode = 2
+
+[node name="UserName" type="LineEdit" parent="SettingsSContainer/Settings/Prompt & Personality" unique_id=492222677]
+layout_mode = 2
+placeholder_text = "User"
+
+[node name="CharName2" type="LineEdit" parent="SettingsSContainer/Settings/Prompt & Personality" unique_id=86351450]
+layout_mode = 2
+placeholder_text = "Char"
+
+[node name="UserName3" type="LineEdit" parent="SettingsSContainer/Settings/Prompt & Personality" unique_id=813579163]
+layout_mode = 2
+placeholder_text = "ONE BIG PROMPT FOR NOW"
+
+[node name="Memory System" type="VBoxContainer" parent="SettingsSContainer/Settings" unique_id=1822523377]
+layout_mode = 2
+
+[node name="ClearHistory" type="Button" parent="SettingsSContainer/Settings/Memory System" unique_id=1088076003]
+layout_mode = 2
+text = "Clear History"
+
+[node name="Advanced & Debug" type="VBoxContainer" parent="SettingsSContainer/Settings" unique_id=85609694]
+layout_mode = 2
+
+[node name="Volume" type="VBoxContainer" parent="SettingsSContainer/Settings" unique_id=510521674]
+layout_mode = 2
