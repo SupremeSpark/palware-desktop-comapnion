@@ -13,14 +13,6 @@ offset_right = 1155.0
 offset_bottom = 641.0
 script = ExtResource("1_0xm2m")
 
-[node name="Settings" parent="." unique_id=881311679 instance=ExtResource("3_h2yge")]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 160.0
-offset_top = 3.0
-offset_right = -405.0
-offset_bottom = -171.0
-
 [node name="LMStudio" type="Node" parent="." unique_id=2107777530]
 script = ExtResource("1_ig7tw")
 
@@ -77,3 +69,11 @@ offset_top = 6.0
 offset_right = -25.0
 offset_bottom = 80.0
 grow_horizontal = 0
+
+[node name="Settings" parent="." unique_id=881311679 instance=ExtResource("3_h2yge")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 160.0
+offset_top = 3.0
+offset_right = -405.0
+offset_bottom = -171.0
