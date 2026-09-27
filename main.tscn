@@ -1,117 +1,33 @@
 [gd_scene format=3 uid="uid://cmkevbewulcpd"]
 
-[ext_resource type="Script" uid="uid://li2ut082kqwn" path="res://main.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://c0c4ftmfboqs4" path="res://lm_studio.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cbuw23dflxwtm" path="res://chatbox.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cn8vd18md8dws" path="res://Settings.tscn" id="3_h2yge"]
-
-[sub_resource type="GDScript" id="GDScript_h2yge"]
-resource_name = "Resizeable"
-script/source = "extends \"res://godot-resizable-main/addons/eranot.resizable/resizable.gd\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="Main" type="Control" unique_id=1606261363]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 267.0
-offset_top = 110.0
-offset_right = 921.0
-offset_bottom = 496.0
-script = ExtResource("1_0xm2m")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=424572004]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.091614224, 0.53798825, 0.56311744, 0.2901961)
-
-[node name="ResizeableNode" type="Control" parent="." unique_id=1627407420]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = SubResource("GDScript_h2yge")
-
-[node name="LMStudio" type="Node" parent="." unique_id=2107777530]
-script = ExtResource("1_ig7tw")
-
-[node name="ChatHistory" type="ScrollContainer" parent="." unique_id=611575084]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -22.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-offset_transform_enabled = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Messages" type="VBoxContainer" parent="ChatHistory" unique_id=1291168632]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="ComposeBar" type="LineEdit" parent="." unique_id=743360972]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -67.0
-offset_right = -119.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 0
-offset_transform_enabled = true
-placeholder_text = "Type to the AI"
-
-[node name="SendButton" type="Button" parent="." unique_id=1432956871]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -110.0
-offset_top = -81.0
-offset_right = -21.0
-offset_bottom = -7.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="SettingsButton" type="Button" parent="." unique_id=2055705604]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -114.0
-offset_top = 6.0
-offset_right = -25.0
-offset_bottom = 80.0
-grow_horizontal = 0
 
 [node name="Settings" parent="." unique_id=881311679 instance=ExtResource("3_h2yge")]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.2247707
-anchor_bottom = 0.9637306
-offset_left = 164.0
-offset_top = 48.0
-offset_right = -218.0
-offset_bottom = -126.0
+anchor_left = 0.5868056
+anchor_top = 0.083333336
+anchor_right = 0.9748264
+anchor_bottom = 0.44135803
+
+[node name="Chatbox" parent="." unique_id=1840518293 instance=ExtResource("3_1bvp3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24652778
+anchor_top = 0.25925925
+anchor_right = 0.6267361
+anchor_bottom = 0.61882716
+offset_left = -143.0
+offset_top = 101.0
+offset_right = -143.0
+offset_bottom = 101.0
+script = null
