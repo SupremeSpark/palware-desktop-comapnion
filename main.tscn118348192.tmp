@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://nsutqsnukuy" path="res://chatbox.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cn8vd18md8dws" path="res://Settings.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://1c1070oh643w" path="res://addons/godot-resizable-main/addons/eranot.resizable/resizable.gd" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://c5sdd4eq436ra" path="res://addons/clickthrough/nodes/clickthrough_gdscript/clickthrough_gdscript.gd" id="5_lquwl"]
-[ext_resource type="Script" uid="uid://crlids4tnf8tp" path="res://addons/clickthrough/detection/transparent/transparent_detector.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://ccehtoghbxkfr" path="res://addons/Godot-Clickthrough-Addon-main/addons/clickthrough/nodes/clickthrough_gdscript/clickthrough_gdscript.gd" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://bkq1bjls1cfiv" path="res://addons/Godot-Clickthrough-Addon-main/addons/clickthrough/detection/transparent/transparent_detector.gd" id="6_272bh"]
 
 [node name="Main" type="Control" unique_id=1606261363 node_paths=PackedStringArray("open_button")]
 layout_mode = 3
@@ -45,11 +45,8 @@ offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("4_1bvp3")
 
-[node name="Clickthrough" type="Node" parent="." unique_id=1860158464]
-script = ExtResource("5_lquwl")
-window_mode = 3
-unfocusable = false
-metadata/_custom_type_script = "uid://c5sdd4eq436ra"
+[node name="Clickthrough" type="Node" parent="." unique_id=992436695]
+script = ExtResource("5_7mycd")
 
-[node name="TransparentDetector" type="Node" parent="Clickthrough" unique_id=1677396198]
-script = ExtResource("6_7mycd")
+[node name="TransparentDetector" type="Node" parent="Clickthrough" unique_id=190199680]
+script = ExtResource("6_272bh")

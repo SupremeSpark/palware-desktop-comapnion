@@ -24,7 +24,6 @@ window/size/transparent=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
-window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -34,6 +33,10 @@ project/assembly_name="Palware"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/clickthrough/plugin.cfg", "res://addons/godot-resizable-main/addons/eranot.resizable/plugin.cfg")
 
 [physics]
 
