@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://da0ytql0s83q3" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://nsutqsnukuy" path="res://chatbox.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cn8vd18md8dws" path="res://Settings.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://1c1070oh643w" path="res://godot-resizable-main/addons/eranot.resizable/resizable.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://1c1070oh643w" path="res://addons/godot-resizable-main/addons/eranot.resizable/resizable.gd" id="4_1bvp3"]
 
 [node name="Main" type="Control" unique_id=1606261363 node_paths=PackedStringArray("open_button")]
 layout_mode = 3
