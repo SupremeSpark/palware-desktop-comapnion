@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
 
+[dotnet]
+
+project/assembly_name="Palware"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

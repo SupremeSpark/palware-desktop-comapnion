@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palware", "Palware.csproj", "{B760E2C9-114F-4B09-844E-295D217CF976}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B760E2C9-114F-4B09-844E-295D217CF976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B760E2C9-114F-4B09-844E-295D217CF976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B760E2C9-114F-4B09-844E-295D217CF976}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{B760E2C9-114F-4B09-844E-295D217CF976}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{B760E2C9-114F-4B09-844E-295D217CF976}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{B760E2C9-114F-4B09-844E-295D217CF976}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
