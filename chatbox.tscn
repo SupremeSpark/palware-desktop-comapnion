@@ -1,22 +1,7 @@
-[gd_scene format=3 uid="uid://cbuw23dflxwtm"]
+[gd_scene format=3 uid="uid://nsutqsnukuy"]
 
-[ext_resource type="Script" uid="uid://li2ut082kqwn" path="res://chatbox_panel.gd" id="1_2nilb"]
+[ext_resource type="Script" uid="uid://li2ut082kqwn" path="res://chatbox.gd" id="1_2nilb"]
 [ext_resource type="Script" uid="uid://c0c4ftmfboqs4" path="res://lm_studio.gd" id="2_2nilb"]
-
-[sub_resource type="GDScript" id="GDScript_2nilb"]
-resource_name = "Resizeable"
-script/source = "extends \"res://godot-resizable-main/addons/eranot.resizable/resizable.gd\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="Main" type="Control" unique_id=1840518293]
 layout_mode = 3
@@ -38,15 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.091614224, 0.53798825, 0.56311744, 0.2901961)
 
-[node name="ResizeableNode" type="Control" parent="." unique_id=702282165]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = SubResource("GDScript_2nilb")
-
 [node name="LMStudio" type="Node" parent="." unique_id=1478034608]
 script = ExtResource("2_2nilb")
 
@@ -55,12 +31,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -22.0
-offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Messages" type="VBoxContainer" parent="ChatHistory" unique_id=2074071770]
 layout_mode = 2
@@ -95,14 +68,3 @@ offset_right = -21.0
 offset_bottom = -7.0
 grow_horizontal = 0
 grow_vertical = 0
-
-[node name="SettingsButton" type="Button" parent="." unique_id=680246468]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -114.0
-offset_top = 6.0
-offset_right = -25.0
-offset_bottom = 80.0
-grow_horizontal = 0

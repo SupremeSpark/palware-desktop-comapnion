@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cmkevbewulcpd"]
+
+[ext_resource type="Script" uid="uid://da0ytql0s83q3" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://nsutqsnukuy" path="res://chatbox.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cn8vd18md8dws" path="res://Settings.tscn" id="3_h2yge"]
+
+[sub_resource type="GDScript" id="GDScript_0xm2m"]
+resource_name = "Resizeable"
+script/source = "extends \"res://godot-resizable-main/addons/eranot.resizable/resizable.gd\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Main" type="Control" unique_id=1606261363 node_paths=PackedStringArray("open_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 267.0
+offset_top = 110.0
+offset_right = 921.0
+offset_bottom = 496.0
+script = ExtResource("1_0xm2m")
+open_button = NodePath("chatbox/SettingsButton")
+scene_to_open = ExtResource("3_h2yge")
+
+[node name="chatbox" parent="." unique_id=1840518293 instance=ExtResource("2_0xm2m")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.34250763
+anchor_top = 0.3290155
+anchor_right = 0.65749234
+anchor_bottom = 1.3290155
+metadata/_edit_use_anchors_ = true
+
+[node name="ResizeableNode" type="Control" parent="chatbox" unique_id=470057583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_0xm2m")
+
+[node name="SettingsButton" type="Button" parent="chatbox" unique_id=2137191692]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_top = 6.0000305
+offset_right = -20.0
+offset_bottom = 80.00003
+grow_horizontal = 0
