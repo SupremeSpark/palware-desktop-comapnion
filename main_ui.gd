@@ -2,7 +2,14 @@ extends Control
 
 @export var open_button: Button
 @export var scene_to_open: PackedScene
+@onready var lmstudio = $LMStudio
 
+func open_settings() -> void:
+	var settings_scene = preload("res://settings.tscn")
+	var settings = settings_scene.instantiate()
+	settings.prompt_main_changed.connect(_on_prompt_main_changed)
+	add_child(settings)
+	settings.show()
 
 func _ready():
 	open_button.pressed.connect(_on_open_button_pressed)

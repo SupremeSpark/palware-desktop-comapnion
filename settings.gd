@@ -2,8 +2,10 @@ extends Control
 
 #connections to other scrits
 @onready var chatbox = get_tree().root.get_node("Main/MainUI/Chatbox")
-@onready var LLM = get_tree().root.get_node("Main/LLM")
+@onready var LLM = get_tree().root.get_node("Main/MainUI/Chatbox/LMStudio")
 
+#
+@onready var prompt_main: TextEdit = $TabContainer/Prompt/ScrollContainer/VBoxContainer/PromptMain
 @onready var player_cam = get_tree().current_scene.get_node("Camera3D")
 # @onready var environment: Environment = get_tree().current_scene.get_node("WorldEnviroment").enviroment
 @onready var fps_label: Label = $"TabContainer/Visuals/ScrollContainer/VBoxContainer/FpsLabel"
@@ -134,9 +136,8 @@ func shadow_quality(index):
 
 func change_username(value):
 	chatbox.username = value
+	LLM.username = value
 	
 func change_charname(value):
 	chatbox.charname = value
-
-func change_prompt() -> void:
-	pass # Replace with function body.
+	LLM.charname = value
