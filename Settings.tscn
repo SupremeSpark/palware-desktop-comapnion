@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cn8vd18md8dws"]
 
+[ext_resource type="Script" uid="uid://da88d3lqa5t7j" path="res://settings.gd" id="1_2fv1l"]
 [ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://kenneyUI-blue.tres" id="1_bvb5x"]
 
 [node name="Settings Pannel" type="Control" unique_id=881311679]
@@ -12,6 +13,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+script = ExtResource("1_2fv1l")
 metadata/_edit_use_anchors_ = true
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=268909724]
@@ -22,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bvb5x")
-current_tab = 1
+current_tab = 5
 
 [node name="Connection" type="TabBar" parent="TabContainer" unique_id=477410764]
 visible = false
@@ -59,6 +61,7 @@ layout_mode = 2
 placeholder_text = "Model"
 
 [node name="Generation" type="TabBar" parent="TabContainer" unique_id=1859944885]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -200,11 +203,100 @@ size_flags_vertical = 3
 
 [node name="SFX" type="HSlider" parent="TabContainer/Volume/ScrollContainer/VBoxContainer" unique_id=1740239723]
 layout_mode = 2
+value = 50.0
+
+[node name="Visuals" type="TabBar" parent="TabContainer" unique_id=2140315048]
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Visuals" unique_id=1730722467]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Visuals/ScrollContainer" unique_id=2084254567]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="3D Scaling" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=132217872]
+layout_mode = 2
+min_value = 0.25
+max_value = 1.0
+step = 0.05
+value = 0.25
+
+[node name="Anti-Aliasing" type="OptionButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=7899311]
+layout_mode = 2
+selected = 0
+item_count = 6
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "TAA"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA 2x"
+popup/item_3/id = 3
+popup/item_4/text = "MSAA 4x"
+popup/item_4/id = 4
+popup/item_5/text = "MSAA 8x"
+popup/item_5/id = 5
+
+[node name="FPS" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=2071194004]
+layout_mode = 2
+min_value = 15.0
+max_value = 144.0
+step = 2.0
+value = 15.0
+
+[node name="OptionButton2" type="OptionButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=823048621]
+layout_mode = 2
+selected = 1
+item_count = 6
+popup/item_0/text = "Hard"
+popup/item_0/id = 0
+popup/item_1/text = "Soft Lowest"
+popup/item_1/id = 1
+popup/item_2/text = "Soft Low"
+popup/item_2/id = 2
+popup/item_3/text = "Soft Medium"
+popup/item_3/id = 3
+popup/item_4/text = "Soft High"
+popup/item_4/id = 4
+popup/item_5/text = "Soft Ultra"
+popup/item_5/id = 5
+
+[node name="SSAO" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=164599963]
+layout_mode = 2
+text = "SSAO"
+
+[node name="SSIL" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=312181169]
+layout_mode = 2
+text = "SSIL"
+
+[node name="Glow" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=488192035]
+layout_mode = 2
+text = "Glow"
+
+[node name="Color Adjustments" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=222500410]
+layout_mode = 2
+text = "Color Adjustments"
+
+[node name="FOV" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=895751747]
+layout_mode = 2
+min_value = 60.0
+max_value = 200.0
+step = 5.0
+value = 90.0
 
 [node name="Debug" type="TabBar" parent="TabContainer" unique_id=1776204716]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 5
+metadata/_tab_index = 6
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Debug" unique_id=1249747437]
 layout_mode = 1

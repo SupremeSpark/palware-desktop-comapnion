@@ -39,27 +39,27 @@ extends Node
 #09. methods
 #-----------------------------------------------------------
 func _ready() -> void:
-    DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_TRANSPARENT, transparent_bg, get_window().get_window_id())
-    DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_ALWAYS_ON_TOP, always_on_top, get_window().get_window_id())
-    if transparent_bg:
-        get_window().transparent = true
-    
-    DisplayServer.window_set_mode(window_mode, get_window().get_window_id())
-    DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_RESIZE_DISABLED, unresizable, get_window().get_window_id())
-    DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_NO_FOCUS, unfocusable, get_window().get_window_id())
-    DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_BORDERLESS, borderless, get_window().get_window_id())
+	DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_TRANSPARENT, transparent_bg, get_window().get_window_id())
+	DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_ALWAYS_ON_TOP, always_on_top, get_window().get_window_id())
+	if transparent_bg:
+		get_window().transparent = true
+	
+	DisplayServer.window_set_mode(window_mode, get_window().get_window_id())
+	DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_RESIZE_DISABLED, unresizable, get_window().get_window_id())
+	DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_NO_FOCUS, unfocusable, get_window().get_window_id())
+	DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_BORDERLESS, borderless, get_window().get_window_id())
 
-    await get_window().ready
-    add_child(clickthrough_csharp)
-    get_viewport().size_changed.connect(_on_viewport_size_changed)
-    pass
+	await get_window().ready
+	add_child(clickthrough_csharp)
+	get_viewport().size_changed.connect(_on_viewport_size_changed)
+	pass
 
 func set_clickability(clickability: bool) -> void:
-    clickthrough_csharp.SetClickthrough(!clickability)
+	clickthrough_csharp.SetClickthrough(!clickability)
 
 #-----------------------------------------------------------
 #10. signal methods
 #-----------------------------------------------------------
 func _on_viewport_size_changed() -> void:
-    get_window().borderless = false
-    get_window().borderless = borderless
+	get_window().borderless = false
+	get_window().borderless = borderless

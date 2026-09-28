@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://c5sdd4eq436ra" path="res://addons/clickthrough/nodes/clickthrough_gdscript/clickthrough_gdscript.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://crlids4tnf8tp" path="res://addons/clickthrough/detection/transparent/transparent_detector.gd" id="6_7mycd"]
 
+[sub_resource type="Environment" id="Environment_7mycd"]
+
 [node name="Main" type="Control" unique_id=1606261363 node_paths=PackedStringArray("open_button")]
 layout_mode = 3
 anchors_preset = 15
@@ -17,6 +19,13 @@ grow_vertical = 2
 script = ExtResource("1_0xm2m")
 open_button = NodePath("Chatbox/SettingsButton2")
 scene_to_open = ExtResource("3_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=107026056]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1970018894]
+environment = SubResource("Environment_7mycd")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1789948747]
 
 [node name="Chatbox" parent="." unique_id=1840518293 instance=ExtResource("2_0xm2m")]
 layout_mode = 1
