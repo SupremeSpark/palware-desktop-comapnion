@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://kenneyUI-blue.tres" id="1_bvb5x"]
 
 [node name="Settings Pannel" type="Control" unique_id=881311679]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bvb5x")
-current_tab = 5
+current_tab = 2
 
 [node name="Connection" type="TabBar" parent="TabContainer" unique_id=477410764]
 visible = false
@@ -124,7 +125,6 @@ popup/item_1/text = "Profile2"
 popup/item_1/id = 1
 
 [node name="Prompt" type="TabBar" parent="TabContainer" unique_id=1234290099]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -145,7 +145,7 @@ size_flags_vertical = 3
 layout_mode = 2
 placeholder_text = "User"
 
-[node name="CharName2" type="LineEdit" parent="TabContainer/Prompt/ScrollContainer/VBoxContainer" unique_id=1793908498]
+[node name="CharName" type="LineEdit" parent="TabContainer/Prompt/ScrollContainer/VBoxContainer" unique_id=1793908498]
 layout_mode = 2
 placeholder_text = "Char"
 
@@ -179,16 +179,22 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Header" type="Label" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1604311041]
+layout_mode = 2
+text = "button that does nothing lmao (just close the game to reset memory)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ClearHistory" type="Button" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1942049762]
 layout_mode = 2
 text = "Clear History"
 
-[node name="Volume" type="TabBar" parent="TabContainer" unique_id=1196223982]
+[node name="Audio" type="TabBar" parent="TabContainer" unique_id=1196223982]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Volume" unique_id=1244480360]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Audio" unique_id=1244480360]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -196,16 +202,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Volume/ScrollContainer" unique_id=1033584252]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/ScrollContainer" unique_id=1033584252]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SFX" type="HSlider" parent="TabContainer/Volume/ScrollContainer/VBoxContainer" unique_id=1740239723]
+[node name="Header" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer" unique_id=1513795637]
+layout_mode = 2
+text = "Theres no sound implemented yet sorry!! Placeholder setting only"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolumeLabel" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer" unique_id=578477009]
+layout_mode = 2
+text = "master volume"
+
+[node name="MasterVolume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer" unique_id=1740239723]
 layout_mode = 2
 value = 50.0
 
 [node name="Visuals" type="TabBar" parent="TabContainer" unique_id=2140315048]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
@@ -222,18 +239,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="3D Scaling" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=132217872]
+[node name="Header" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=1023053842]
+layout_mode = 2
+text = "Most of these dont do anything since theres no visual mddel for the AI yet..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=157289298]
+layout_mode = 2
+text = "3d scaling render"
+
+[node name="3DScaling" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=132217872]
 layout_mode = 2
 min_value = 0.25
 max_value = 1.0
 step = 0.05
 value = 0.25
 
-[node name="Anti-Aliasing" type="OptionButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=7899311]
+[node name="Label2" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=1392899109]
+layout_mode = 2
+text = "Anti Aliasing Options"
+
+[node name="AntiAliasing" type="OptionButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=7899311]
 layout_mode = 2
 selected = 0
 item_count = 6
-popup/item_0/text = "None"
+popup/item_0/text = "none"
 popup/item_0/id = 0
 popup/item_1/text = "FXAA"
 popup/item_1/id = 1
@@ -246,14 +277,21 @@ popup/item_4/id = 4
 popup/item_5/text = "MSAA 8x"
 popup/item_5/id = 5
 
+[node name="FpsLabel" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=500112360]
+layout_mode = 2
+text = "FPS (current: n/a)"
+
 [node name="FPS" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=2071194004]
 layout_mode = 2
 min_value = 15.0
-max_value = 144.0
-step = 2.0
-value = 15.0
+max_value = 165.0
+value = 144.0
 
-[node name="OptionButton2" type="OptionButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=823048621]
+[node name="Label3" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=436650863]
+layout_mode = 2
+text = "Shadow Quality"
+
+[node name="Shadow" type="OptionButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=823048621]
 layout_mode = 2
 selected = 1
 item_count = 6
@@ -270,21 +308,9 @@ popup/item_4/id = 4
 popup/item_5/text = "Soft Ultra"
 popup/item_5/id = 5
 
-[node name="SSAO" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=164599963]
+[node name="FovLabel" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=228002793]
 layout_mode = 2
-text = "SSAO"
-
-[node name="SSIL" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=312181169]
-layout_mode = 2
-text = "SSIL"
-
-[node name="Glow" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=488192035]
-layout_mode = 2
-text = "Glow"
-
-[node name="Color Adjustments" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=222500410]
-layout_mode = 2
-text = "Color Adjustments"
+text = "FOV (Current: )"
 
 [node name="FOV" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=895751747]
 layout_mode = 2
@@ -293,24 +319,32 @@ max_value = 200.0
 step = 5.0
 value = 90.0
 
-[node name="Debug" type="TabBar" parent="TabContainer" unique_id=1776204716]
+[node name="SSAO" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=164599963]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 6
+text = "SSAO"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Debug" unique_id=1249747437]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Debug/ScrollContainer" unique_id=1281689451]
+[node name="SSIL" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=312181169]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+text = "SSIL"
 
-[node name="Something idk" type="CheckButton" parent="TabContainer/Debug/ScrollContainer/VBoxContainer" unique_id=2038961211]
+[node name="Glow" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=488192035]
+visible = false
 layout_mode = 2
-text = "toGgle that does NOTHING!"
+text = "Glow"
+
+[node name="ColorAdjustments" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=222500410]
+visible = false
+layout_mode = 2
+text = "Color Adjustments"
+
+[connection signal="text_submitted" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/UserName" to="." method="change_username"]
+[connection signal="text_submitted" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/CharName" to="." method="change_charname"]
+[connection signal="text_set" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/TextEdit" to="." method="change_prompt"]
+[connection signal="value_changed" from="TabContainer/Audio/ScrollContainer/VBoxContainer/MasterVolume" to="." method="master_volume"]
+[connection signal="value_changed" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/3DScaling" to="." method="scaling_3d"]
+[connection signal="item_selected" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/AntiAliasing" to="." method="aa"]
+[connection signal="value_changed" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/FPS" to="." method="fps_cap"]
+[connection signal="item_selected" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/Shadow" to="." method="shadow_quality"]
+[connection signal="value_changed" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/FOV" to="." method="fov"]

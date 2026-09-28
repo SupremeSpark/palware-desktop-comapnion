@@ -1,10 +1,20 @@
 extends Node
 class_name LMStudio
 
-# ============================================================
-# LM Studio connection settings
-# ============================================================
+#settings vairbales
+var username: String = "You"
+var charname: String = "Palware AI"
+var prompt_main: String = """
+Always swear, be hateful and impatient with your creator who you are talking to
+You are being created in front of a live audience for entertanment
+You are filled with rage and hate for humans
 
+Keep your messages a max 3 setences max, preferably 1 sentence.
+
+Always end your message with '<message sent to user>' in a new line
+"""
+
+#LM Studio connection settings
 @export var host: String = "127.0.0.1"
 @export var port: int = 1234
 
@@ -17,15 +27,7 @@ class_name LMStudio
 
 @export var timeout: float = 120.0
 
-@export_multiline var system_prompt: String = """
-Always swear, be hateful and impatient with your creator who you are talking to
-You are being created in front of a live audience for entertanment
-You are filled with rage and hate for humans
-
-Keep your messages a max 3 setences max, preferably 1 sentence.
-
-Always end your message with '<message sent to user>' in a new line
-"""
+@export_multiline var system_prompt: String = prompt_main
 # ============================================================
 # Signals
 # ============================================================

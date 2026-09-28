@@ -7,6 +7,9 @@ extends Control
 @onready var input: LineEdit = $ComposeBar
 @onready var send_button: Button = $SendButton
 
+#settings vairbales
+var username: String = "You"
+var charname: String = "Palware AI"
 
 func _ready() -> void:
 	# Makes bg transparent
@@ -60,7 +63,7 @@ func _send_message() -> void:
 
 	print("Adding user message...")
 
-	add_message("You: " + text)
+	add_message(username + ": " + text)
 
 	input.clear()
 
@@ -85,7 +88,7 @@ func _on_lm_response(response: String) -> void:
 	print(response)
 	print("***************************************")
 
-	add_message("AI: " + response)
+	add_message(charname + ": " + response)
 
 	send_button.disabled = false
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://nsutqsnukuy"]
 
 [ext_resource type="Script" uid="uid://li2ut082kqwn" path="res://chatbox.gd" id="1_2nilb"]
-[ext_resource type="Script" uid="uid://c0c4ftmfboqs4" path="res://lmstudio.gd" id="2_2nilb"]
+[ext_resource type="Script" uid="uid://c0c4ftmfboqs4" path="res://LMStudio.gd" id="2_2nilb"]
 
 [node name="Main" type="Control" unique_id=1840518293]
 layout_mode = 3
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.091614224, 0.53798825, 0.56311744, 0.2901961)
 
-[node name="LMStudio" type="Node" parent="." unique_id=1478034608]
+[node name="LLM" type="Node" parent="." unique_id=1478034608]
 script = ExtResource("2_2nilb")
 
 [node name="ChatHistory" type="ScrollContainer" parent="." unique_id=2041117851]

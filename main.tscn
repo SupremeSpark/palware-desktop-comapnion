@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmkevbewulcpd"]
 
-[ext_resource type="Script" uid="uid://da0ytql0s83q3" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://da0ytql0s83q3" path="res://main_ui.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://nsutqsnukuy" path="res://chatbox.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cn8vd18md8dws" path="res://Settings.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://1c1070oh643w" path="res://addons/godot-resizable-main/addons/eranot.resizable/resizable.gd" id="4_1bvp3"]
@@ -8,17 +8,9 @@
 [ext_resource type="Script" uid="uid://crlids4tnf8tp" path="res://addons/clickthrough/detection/transparent/transparent_detector.gd" id="6_7mycd"]
 
 [sub_resource type="Environment" id="Environment_7mycd"]
+glow_enabled = true
 
-[node name="Main" type="Control" unique_id=1606261363 node_paths=PackedStringArray("open_button")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_0xm2m")
-open_button = NodePath("Chatbox/SettingsButton2")
-scene_to_open = ExtResource("3_h2yge")
+[node name="Main" type="Node3D" unique_id=859206538]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=107026056]
 
@@ -26,17 +18,38 @@ scene_to_open = ExtResource("3_h2yge")
 environment = SubResource("Environment_7mycd")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1789948747]
+current = true
 
-[node name="Chatbox" parent="." unique_id=1840518293 instance=ExtResource("2_0xm2m")]
+[node name="Clickthrough" type="Node" parent="." unique_id=1860158464]
+script = ExtResource("5_lquwl")
+window_mode = 3
+unfocusable = false
+metadata/_custom_type_script = "uid://c5sdd4eq436ra"
+
+[node name="TransparentDetector" type="Node" parent="Clickthrough" unique_id=1677396198]
+script = ExtResource("6_7mycd")
+
+[node name="MainUI" type="Control" parent="." unique_id=183018428 node_paths=PackedStringArray("open_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_0xm2m")
+open_button = NodePath("Chatbox/SettingsButton")
+scene_to_open = ExtResource("3_h2yge")
+
+[node name="Chatbox" parent="MainUI" unique_id=1840518293 instance=ExtResource("2_0xm2m")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.20659722
-anchor_top = 0.17901234
-anchor_right = 0.7395833
-anchor_bottom = 0.6944444
-metadata/_edit_use_anchors_ = true
+offset_left = 150.0
+offset_top = 105.0
+offset_right = -242.0
+offset_bottom = -150.0
 
-[node name="SettingsButton2" type="Button" parent="Chatbox" unique_id=2137191692]
+[node name="SettingsButton" type="Button" parent="MainUI/Chatbox" unique_id=2137191692]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -47,18 +60,12 @@ offset_right = -20.0
 offset_bottom = 80.00003
 grow_horizontal = 0
 
-[node name="Resizeable" type="Control" parent="Chatbox" unique_id=1347304735]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Resizeable" type="Control" parent="MainUI/Chatbox" unique_id=1347304735]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("4_1bvp3")
-
-[node name="Clickthrough" type="Node" parent="." unique_id=1860158464]
-script = ExtResource("5_lquwl")
-window_mode = 3
-unfocusable = false
-metadata/_custom_type_script = "uid://c5sdd4eq436ra"
-
-[node name="TransparentDetector" type="Node" parent="Clickthrough" unique_id=1677396198]
-script = ExtResource("6_7mycd")

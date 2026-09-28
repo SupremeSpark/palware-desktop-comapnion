@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.091614224, 0.53798825, 0.56311744, 0.2901961)
 
-[node name="LMStudio" type="Node" parent="." unique_id=1478034608]
+[node name="LLM" type="Node" parent="." unique_id=1478034608]
 script = ExtResource("2_2nilb")
 
 [node name="ChatHistory" type="ScrollContainer" parent="." unique_id=2041117851]
