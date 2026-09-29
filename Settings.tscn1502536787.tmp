@@ -1,0 +1,351 @@
+[gd_scene format=3 uid="uid://cn8vd18md8dws"]
+
+[ext_resource type="Script" uid="uid://da88d3lqa5t7j" path="res://settings.gd" id="1_2fv1l"]
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://kenneyUI-blue.tres" id="1_bvb5x"]
+
+[node name="Settings Pannel" type="Control" unique_id=881311679]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_2fv1l")
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=268909724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bvb5x")
+current_tab = 2
+
+[node name="Connection" type="TabBar" parent="TabContainer" unique_id=477410764]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Connection" unique_id=1970228556]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Connection/ScrollContainer" unique_id=195475852]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Host" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=199074984]
+layout_mode = 2
+placeholder_text = "Host"
+
+[node name="Port" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1935273245]
+layout_mode = 2
+placeholder_text = "Port"
+
+[node name="ChatEndpoint" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=394243622]
+layout_mode = 2
+placeholder_text = "Chat Endpoint"
+
+[node name="Model" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1818935594]
+layout_mode = 2
+placeholder_text = "Model"
+
+[node name="Generation" type="TabBar" parent="TabContainer" unique_id=1859944885]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Generation" unique_id=150406144]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Generation/ScrollContainer" unique_id=2000434791]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Context Length" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1299830877]
+layout_mode = 2
+placeholder_text = "Context Length"
+
+[node name="Max Response Length" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=581839981]
+layout_mode = 2
+placeholder_text = "Max Response Length"
+
+[node name="Temperature" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1439357969]
+layout_mode = 2
+placeholder_text = "Temperature"
+
+[node name="Top P" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=641961070]
+layout_mode = 2
+placeholder_text = "Top P"
+
+[node name="Top K" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1762735235]
+layout_mode = 2
+placeholder_text = "Top K"
+
+[node name="Min P" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1739703048]
+layout_mode = 2
+placeholder_text = "Min P"
+
+[node name="Typical P" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=536616445]
+layout_mode = 2
+placeholder_text = "Typical P"
+
+[node name="Repetition Penalty" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1227722991]
+layout_mode = 2
+placeholder_text = "Repetition Penalty"
+
+[node name="Seed" type="LineEdit" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=635761304]
+layout_mode = 2
+placeholder_text = "Seed"
+
+[node name="Generation Presets" type="OptionButton" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1636765845]
+visible = false
+layout_mode = 2
+search_bar_enabled = true
+item_count = 2
+popup/item_0/text = "Profile1"
+popup/item_0/id = 0
+popup/item_1/text = "Profile2"
+popup/item_1/id = 1
+
+[node name="Prompt" type="TabBar" parent="TabContainer" unique_id=1234290099]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Prompt" unique_id=264652336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Prompt/ScrollContainer" unique_id=1273185190]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UserName" type="LineEdit" parent="TabContainer/Prompt/ScrollContainer/VBoxContainer" unique_id=254915440]
+layout_mode = 2
+placeholder_text = "User"
+
+[node name="CharName" type="LineEdit" parent="TabContainer/Prompt/ScrollContainer/VBoxContainer" unique_id=1793908498]
+layout_mode = 2
+placeholder_text = "Char"
+
+[node name="PromptMain" type="TextEdit" parent="TabContainer/Prompt/ScrollContainer/VBoxContainer" unique_id=37191414]
+layout_mode = 2
+text = "Always swear, be hateful and impatient with your creator who you are talking to
+You are being created in front of a live audience for entertanment
+You are filled with rage and hate for humans
+
+Keep your messages a max 3 setences max, preferably 1 sentence.
+
+Always end your message with '<message sent to user>' in a new line"
+placeholder_text = "Put your prompt here"
+scroll_fit_content_height = true
+
+[node name="Memory" type="TabBar" parent="TabContainer" unique_id=1969183674]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Memory" unique_id=1029962698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Memory/ScrollContainer" unique_id=2107637635]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1604311041]
+layout_mode = 2
+text = "button that does nothing lmao (just close the game to reset memory)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClearHistory" type="Button" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1942049762]
+layout_mode = 2
+text = "Clear History"
+
+[node name="Audio" type="TabBar" parent="TabContainer" unique_id=1196223982]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Audio" unique_id=1244480360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/ScrollContainer" unique_id=1033584252]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer" unique_id=1513795637]
+layout_mode = 2
+text = "Theres no sound implemented yet sorry!! Placeholder setting only"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolumeLabel" type="Label" parent="TabContainer/Audio/ScrollContainer/VBoxContainer" unique_id=578477009]
+layout_mode = 2
+text = "master volume"
+
+[node name="MasterVolume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer" unique_id=1740239723]
+layout_mode = 2
+value = 50.0
+
+[node name="Visuals" type="TabBar" parent="TabContainer" unique_id=2140315048]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Visuals" unique_id=1730722467]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Visuals/ScrollContainer" unique_id=2084254567]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=1023053842]
+layout_mode = 2
+text = "Most of these dont do anything since theres no visual mddel for the AI yet..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=157289298]
+layout_mode = 2
+text = "3d scaling render"
+
+[node name="3DScaling" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=132217872]
+layout_mode = 2
+min_value = 0.25
+max_value = 1.0
+step = 0.05
+value = 0.25
+
+[node name="Label2" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=1392899109]
+layout_mode = 2
+text = "Anti Aliasing Options"
+
+[node name="AntiAliasing" type="OptionButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=7899311]
+layout_mode = 2
+selected = 0
+item_count = 6
+popup/item_0/text = "none"
+popup/item_0/id = 0
+popup/item_1/text = "FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "TAA"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA 2x"
+popup/item_3/id = 3
+popup/item_4/text = "MSAA 4x"
+popup/item_4/id = 4
+popup/item_5/text = "MSAA 8x"
+popup/item_5/id = 5
+
+[node name="FpsLabel" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=500112360]
+layout_mode = 2
+text = "FPS (current: n/a)"
+
+[node name="FPS" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=2071194004]
+layout_mode = 2
+min_value = 15.0
+max_value = 165.0
+value = 144.0
+
+[node name="Label3" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=436650863]
+layout_mode = 2
+text = "Shadow Quality"
+
+[node name="Shadow" type="OptionButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=823048621]
+layout_mode = 2
+selected = 1
+item_count = 6
+popup/item_0/text = "Hard"
+popup/item_0/id = 0
+popup/item_1/text = "Soft Lowest"
+popup/item_1/id = 1
+popup/item_2/text = "Soft Low"
+popup/item_2/id = 2
+popup/item_3/text = "Soft Medium"
+popup/item_3/id = 3
+popup/item_4/text = "Soft High"
+popup/item_4/id = 4
+popup/item_5/text = "Soft Ultra"
+popup/item_5/id = 5
+
+[node name="FovLabel" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=228002793]
+layout_mode = 2
+text = "FOV (Current: )"
+
+[node name="FOV" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=895751747]
+layout_mode = 2
+min_value = 60.0
+max_value = 200.0
+step = 5.0
+value = 90.0
+
+[node name="SSAO" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=164599963]
+visible = false
+layout_mode = 2
+text = "SSAO"
+
+[node name="SSIL" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=312181169]
+visible = false
+layout_mode = 2
+text = "SSIL"
+
+[node name="Glow" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=488192035]
+visible = false
+layout_mode = 2
+text = "Glow"
+
+[node name="ColorAdjustments" type="CheckButton" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=222500410]
+visible = false
+layout_mode = 2
+text = "Color Adjustments"
+
+[connection signal="text_submitted" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/UserName" to="." method="change_username"]
+[connection signal="text_submitted" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/CharName" to="." method="change_charname"]
+[connection signal="text_changed" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/PromptMain" to="." method="_on_prompt_main_text_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/ScrollContainer/VBoxContainer/MasterVolume" to="." method="master_volume"]
+[connection signal="value_changed" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/3DScaling" to="." method="scaling_3d"]
+[connection signal="item_selected" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/AntiAliasing" to="." method="aa"]
+[connection signal="value_changed" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/FPS" to="." method="fps_cap"]
+[connection signal="item_selected" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/Shadow" to="." method="shadow_quality"]
+[connection signal="value_changed" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/FOV" to="." method="fov"]

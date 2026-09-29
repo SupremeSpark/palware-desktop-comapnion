@@ -39,7 +39,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_0xm2m")
-scene_to_open = ExtResource("3_h2yge")
 open_button = NodePath("Chatbox/SettingsButton")
 
 [node name="Chatbox" parent="MainUI" unique_id=1840518293 instance=ExtResource("2_0xm2m")]
@@ -69,3 +68,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("4_1bvp3")
+
+[node name="Settings Pannel" parent="MainUI" unique_id=881311679 instance=ExtResource("3_h2yge")]
+layout_mode = 1
