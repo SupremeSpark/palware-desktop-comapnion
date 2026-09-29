@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://c5sdd4eq436ra"
 [node name="TransparentDetector" type="Node" parent="Clickthrough" unique_id=1677396198]
 script = ExtResource("6_7mycd")
 
-[node name="MainUI" type="Control" parent="." unique_id=183018428 node_paths=PackedStringArray("open_button")]
+[node name="MainUI" type="Control" parent="." unique_id=183018428 node_paths=PackedStringArray("toggle_buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,8 +39,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_0xm2m")
-scene_to_open = ExtResource("3_h2yge")
-open_button = NodePath("Chatbox/SettingsButton")
+toggle_buttons = [NodePath("Chatbox/SettingsButton"), null]
 
 [node name="Chatbox" parent="MainUI" unique_id=1840518293 instance=ExtResource("2_0xm2m")]
 layout_mode = 1
@@ -61,6 +60,35 @@ offset_bottom = 80.00003
 grow_horizontal = 0
 
 [node name="Resizeable" type="Control" parent="MainUI/Chatbox" unique_id=1347304735]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_1bvp3")
+
+[node name="Settings Pannel" parent="MainUI" unique_id=881311679 instance=ExtResource("3_h2yge")]
+layout_mode = 1
+offset_left = 389.0
+offset_top = 304.0
+offset_right = -56.0
+offset_bottom = -13.0
+
+[node name="SettingsButton" type="Button" parent="MainUI/Settings Pannel" unique_id=1402911060]
+z_index = -1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_top = -22.0
+offset_right = 32.0
+offset_bottom = 52.0
+grow_horizontal = 0
+
+[node name="Resizeable" type="Control" parent="MainUI/Settings Pannel" unique_id=929098988]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

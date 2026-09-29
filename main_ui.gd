@@ -1,22 +1,16 @@
 extends Control
 
-@export var open_button: Button
-@export var scene_to_open: PackedScene
+# Assign all the buttons that should toggle the settings panel in the Inspector
+@export var toggle_buttons: Array[Button] = []
+
 @onready var lmstudio = $LMStudio
 
 func _ready():
-	open_button.pressed.connect(_on_open_button_pressed)
+	# Loop through every button in your array and connect its signal
+	for button in toggle_buttons:
+		if button != null:
+			button.pressed.connect(_on_toggle_button_pressed)
 
-
-func _on_open_button_pressed():
-	var window = Window.new()
-	var content = scene_to_open.instantiate()
-
-	window.add_child(content)
-	add_child(window)
-
-	window.size = Vector2(600, 400)
-
-	window.close_requested.connect(window.queue_free)
-
-	window.popup_centered()
+func _on_toggle_button_pressed():
+	# This single panel will be toggled regardless of which button was clicked
+	$"Settings Pannel".visible = !$"Settings Pannel".visible
