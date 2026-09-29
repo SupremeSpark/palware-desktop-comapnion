@@ -15,10 +15,6 @@ run/main_scene="uid://cmkevbewulcpd"
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Global="*uid://gl757o6qoke8"
-
 [display]
 
 window/size/mode=3
