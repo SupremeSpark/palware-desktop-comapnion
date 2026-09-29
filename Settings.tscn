@@ -116,6 +116,7 @@ layout_mode = 2
 placeholder_text = "Seed"
 
 [node name="Generation Presets" type="OptionButton" parent="TabContainer/Generation/ScrollContainer/VBoxContainer" unique_id=1636765845]
+visible = false
 layout_mode = 2
 search_bar_enabled = true
 item_count = 2

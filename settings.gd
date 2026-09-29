@@ -53,7 +53,7 @@ func load_slider(save_name, slider):
 		var save = FileAccess.open("user://" + save_name + ".omo", FileAccess.READ)
 		if save:
 			slider.value = float(save.get_as_text())
-			save.close
+			save.close()
 
 func load_options(save_name, button):
 		var save = FileAccess.open("user://" + save_name + ".omo", FileAccess.READ)
