@@ -1,35 +1,10 @@
 extends Node
 class_name LMStudio
 
-#settings vairbales
-var username: String = "You"
-var charname: String = "Palware AI"
-var prompt_main: String = """
-Always swear, be hateful and impatient with your creator who you are talking to
-You are being created in front of a live audience for entertanment
-You are filled with rage and hate for humans
-
-Keep your messages a max 3 setences max, preferably 1 sentence.
-
-Always end your message with '<message sent to user>' in a new line
-"""
-
-#LM Studio connection settings
-@export var host: String = "127.0.0.1"
-@export var port: int = 1234
-
-# OpenAI-compatible LM Studio endpoint
-@export var chat_endpoint: String = "/v1/chat/completions"
-
-# Put your loaded model name here.
-# You can find it in LM Studio.
-@export var model: String = "gemma-4-e4b-uncensored-hauhaucs-aggressive@q5_k_m"
-
-@export var timeout: float = 120.0
-
-@export_multiline var system_prompt: String = prompt_main
 # ============================================================
-# Signals
+# LM STUDIO
+# Global is the single source of truth for configuration.
+# The actual HTTP/API work remains here.
 # ============================================================
 
 signal response_received(text: String)
@@ -37,36 +12,62 @@ signal request_failed(error: String)
 signal request_started()
 signal request_finished()
 
-
-# ============================================================
-# Internal
-# ============================================================
-
 var http: HTTPRequest
 var busy: bool = false
 var conversation_history: Array = []
-# ============================================================
-# Startup
-# ============================================================
+
 
 func _ready() -> void:
 	print("================================")
 	print("LM Studio Node starting...")
-	print("Host: ", host)
-	print("Port: ", port)
-	print("Model: ", model)
+	print("Host: ", Global.lm_host)
+	print("Port: ", Global.lm_port)
+	print("Model: ", Global.lm_model)
 	print("================================")
 
 	http = HTTPRequest.new()
 	http.name = "HTTPRequest"
-
-	http.timeout = timeout
+	http.timeout = Global.lm_timeout
 
 	add_child(http)
-
 	http.request_completed.connect(_on_request_completed)
 
 	print("LM Studio HTTPRequest ready.")
+
+
+# ============================================================
+# Convenience properties
+# These read Global every time they are accessed, so the
+# Settings window can change them while the application runs.
+# ============================================================
+
+var host: String:
+	get:
+		return Global.lm_host
+
+var port: int:
+	get:
+		return Global.lm_port
+
+var chat_endpoint: String:
+	get:
+		return Global.lm_chat_endpoint
+
+var model: String:
+	get:
+		return Global.lm_model
+
+var timeout: float:
+	get:
+		return Global.lm_timeout
+
+var username: String:
+	get:
+		return Global.username
+
+var charname: String:
+	get:
+		return Global.charname
 
 
 # ============================================================
@@ -74,13 +75,11 @@ func _ready() -> void:
 # ============================================================
 
 func send_message(message: String) -> void:
-
 	if busy:
 		push_warning("LM Studio request already running.")
 		return
 
 	busy = true
-
 	request_started.emit()
 
 	print("")
@@ -90,9 +89,9 @@ func send_message(message: String) -> void:
 	print("=======================================")
 
 	var url := "http://%s:%d%s" % [
-		host,
-		port,
-		chat_endpoint
+		Global.lm_host,
+		Global.lm_port,
+		Global.lm_chat_endpoint
 	]
 
 	print("URL: ", url)
@@ -106,26 +105,35 @@ func send_message(message: String) -> void:
 		"content": message
 	})
 
+	# IMPORTANT:
+	# Read Global.prompt_main here, when the request is created.
+	# This means a prompt edited in Settings is used immediately
+	# by the next message without restarting LMStudio.
 	var messages: Array = [
 		{
 			"role": "system",
-			"content": system_prompt
+			"content": Global.prompt_main
 		}
 	]
 
 	messages.append_array(conversation_history)
 
 	var body := {
-		"model": model,
+		"model": Global.lm_model,
 		"messages": messages,
-		"temperature": 0.7,
+		"temperature": Global.lm_temperature,
 		"stream": false
 	}
 
 	var json_body := JSON.stringify(body)
 
+	print("System prompt currently being sent:")
+	print(Global.prompt_main)
 	print("JSON:")
 	print(json_body)
+
+	# Keep HTTPRequest's timeout synchronized with the current setting.
+	http.timeout = Global.lm_timeout
 
 	var error := http.request(
 		url,
@@ -173,7 +181,6 @@ func _on_request_completed(
 	# ----------------------------------------
 
 	if result != HTTPRequest.RESULT_SUCCESS:
-
 		var error_text := "HTTP request failed. Result: %s" % result
 
 		push_error(error_text)
@@ -183,13 +190,11 @@ func _on_request_completed(
 
 		return
 
-
 	# ----------------------------------------
 	# HTTP-level failure
 	# ----------------------------------------
 
 	if response_code < 200 or response_code >= 300:
-
 		var error_body := body.get_string_from_utf8()
 
 		print("Server returned error:")
@@ -203,7 +208,6 @@ func _on_request_completed(
 		request_finished.emit()
 
 		return
-
 
 	# ----------------------------------------
 	# Parse response
@@ -226,7 +230,6 @@ func _on_request_completed(
 
 		return
 
-
 	# ----------------------------------------
 	# OpenAI-compatible response
 	# ----------------------------------------
@@ -241,9 +244,7 @@ func _on_request_completed(
 
 		return
 
-
 	if json["choices"].is_empty():
-
 		var error_text := "LM Studio returned an empty choices array."
 
 		push_error(error_text)
@@ -253,12 +254,9 @@ func _on_request_completed(
 
 		return
 
-
 	var choice = json["choices"][0]
 
-	#sends this at start, dont mind it lmao
 	if not choice.has("message"):
-
 		var error_text := "Response choice does not contain 'message'."
 
 		push_error(error_text)
@@ -268,11 +266,9 @@ func _on_request_completed(
 
 		return
 
+	var response_message = choice["message"]
 
-	var message = choice["message"]
-
-	if not message.has("content"):
-
+	if not response_message.has("content"):
 		var error_text := "Response message does not contain 'content'."
 
 		push_error(error_text)
@@ -282,8 +278,7 @@ func _on_request_completed(
 
 		return
 
-
-	var response_text: String = message["content"]
+	var response_text: String = response_message["content"]
 
 	print("LM Studio says:")
 	print(response_text)
@@ -305,7 +300,6 @@ func _on_request_completed(
 # ============================================================
 
 func cancel_request() -> void:
-
 	if not busy:
 		print("No LM Studio request is running.")
 		return
@@ -324,14 +318,13 @@ func cancel_request() -> void:
 # ============================================================
 
 func test_connection() -> void:
-
 	if busy:
 		push_warning("Cannot test connection while request is running.")
 		return
 
 	var url := "http://%s:%d/v1/models" % [
-		host,
-		port
+		Global.lm_host,
+		Global.lm_port
 	]
 
 	print("")
@@ -342,6 +335,8 @@ func test_connection() -> void:
 		"Content-Type: application/json"
 	])
 
+	http.timeout = Global.lm_timeout
+
 	var error := http.request(
 		url,
 		headers,
@@ -349,7 +344,6 @@ func test_connection() -> void:
 	)
 
 	if error != OK:
-
 		push_error(
 			"Could not start connection test: %s"
 			% error_string(error)
@@ -365,12 +359,13 @@ func test_connection() -> void:
 # ============================================================
 
 func print_config() -> void:
-
 	print("")
 	print("========== LM STUDIO CONFIG ==========")
-	print("Host: ", host)
-	print("Port: ", port)
-	print("Model: ", model)
-	print("Endpoint: ", chat_endpoint)
+	print("Host: ", Global.lm_host)
+	print("Port: ", Global.lm_port)
+	print("Model: ", Global.lm_model)
+	print("Endpoint: ", Global.lm_chat_endpoint)
+	print("Temperature: ", Global.lm_temperature)
+	print("Prompt length: ", Global.prompt_main.length())
 	print("Busy: ", busy)
 	print("=======================================")

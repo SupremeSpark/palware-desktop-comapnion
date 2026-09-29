@@ -70,6 +70,7 @@ mouse_filter = 2
 script = ExtResource("4_1bvp3")
 
 [node name="Settings Pannel" parent="MainUI" unique_id=881311679 instance=ExtResource("3_h2yge")]
+visible = false
 layout_mode = 1
 offset_left = 389.0
 offset_top = 304.0
