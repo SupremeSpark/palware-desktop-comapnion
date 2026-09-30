@@ -54,9 +54,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -109.0
-offset_top = 6.0000305
+offset_top = 5.0
 offset_right = -20.0
-offset_bottom = 80.00003
+offset_bottom = 79.0
 grow_horizontal = 0
 
 [node name="Resizeable" type="Control" parent="MainUI/Chatbox" unique_id=1347304735]
@@ -70,8 +70,12 @@ mouse_filter = 2
 script = ExtResource("4_1bvp3")
 
 [node name="Settings Pannel" parent="MainUI" unique_id=881311679 instance=ExtResource("3_h2yge")]
-visible = false
 layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00086805556
+anchor_top = -0.12191358
+anchor_right = 0.9991319
+anchor_bottom = 0.87808645
 offset_left = 389.0
 offset_top = 304.0
 offset_right = -56.0

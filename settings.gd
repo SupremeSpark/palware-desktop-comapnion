@@ -17,7 +17,7 @@ extends Control
 @onready var fps_label: Label = $"TabContainer/Visuals/ScrollContainer/VBoxContainer/FpsLabel"
 @onready var fov_label: Label = $"TabContainer/Visuals/ScrollContainer/VBoxContainer/FovLabel"
 @onready var mastervolume_label: Label = $TabContainer/Audio/ScrollContainer/VBoxContainer/MasterVolumeLabel
-
+@onready var timeout_label: Label = $TabContainer/Connection/ScrollContainer/VBoxContainer/TimeoutSecLabel
 
 func _ready() -> void:
 	# ----------------------------------------------------------
@@ -52,19 +52,6 @@ func _ready() -> void:
 
 
 # ============================================================
-# PROMPT
-# ============================================================
-
-func _on_prompt_main_text_changed() -> void:
-	# This changes the running prompt immediately.
-	# LMStudio reads Global.prompt_main when send_message() is called,
-	# so the next message uses this new prompt without restarting.
-	Global.set_prompt(prompt_main.text)
-
-	print("[Settings] AI prompt updated. Length: ", Global.prompt_main.length())
-
-
-# ============================================================
 # GENERAL SAVE COMPATIBILITY
 # ============================================================
 
@@ -90,6 +77,82 @@ func load_options(save_name, button):
 		button.selected = int(save.get_as_text())
 		save.close()
 
+# ============================================================
+# Connection
+# ============================================================
+func host(value):
+	Global.host(value)
+
+func port(value):
+	Global.port(value)
+
+func model(value):
+	Global.model(value)
+
+func chat_endpoint(value):
+	Global.chat_endpoint(value)
+	
+func timeout_sec (value):
+	Global.lm_timeout = value
+	Global.save_settings()
+	
+	timeout_label.text = "Current: " + str(value) + " seconds"
+
+# ============================================================
+# Generation
+# ============================================================
+func context_length(value):
+	Global.context_length(value)
+
+func max_response_length(value):
+	Global.max_response_length(value)
+
+func temperature(value):
+	Global.temperature(value)
+
+func top_p(value):
+	Global.top_p(value)
+
+func top_k(value):
+	Global.top_k(value)
+
+func min_p(value):
+	Global.min_p(value)
+
+func typical_p(value):
+	Global.typical_p(value)
+	
+func repetition_penalty(value):
+	Global.min_p(value)
+
+func seed(value):
+	Global.typical_p(value)
+
+# ============================================================
+# PROMPT
+# ============================================================
+func change_username(value):
+	Global.set_username(value)
+
+	# Preserve current Chatbox behavior immediately.
+	if chatbox != null:
+		chatbox.username = Global.username
+
+func change_charname(value):
+	Global.set_charname(value)
+
+	# Preserve current Chatbox behavior immediately.
+	if chatbox != null:
+		chatbox.charname = Global.charname
+
+func _on_prompt_main_text_changed() -> void:
+	Global.set_prompt(prompt_main.text)
+	print("[Settings] AI prompt updated")
+
+# ============================================================
+# Memory
+# ============================================================
+#nothing lmao
 
 # ============================================================
 # AUDIO
@@ -155,11 +218,9 @@ func fps_cap(value):
 	Engine.max_fps = value
 	fps_label.text = "Current FPS: " + str(value)
 
-
 func set_shadow(quality):
 	RenderingServer.directional_soft_shadow_filter_set_quality(quality)
 	RenderingServer.positional_soft_shadow_filter_set_quality(quality)
-
 
 func shadow_quality(index):
 	Global.shadow_quality = index
@@ -177,23 +238,3 @@ func shadow_quality(index):
 		set_shadow(RenderingServer.SHADOW_QUALITY_SOFT_HIGH)
 	elif index == 5:
 		set_shadow(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
-
-
-# ============================================================
-# IDENTITY
-# ============================================================
-
-func change_username(value):
-	Global.set_username(value)
-
-	# Preserve current Chatbox behavior immediately.
-	if chatbox != null:
-		chatbox.username = Global.username
-
-
-func change_charname(value):
-	Global.set_charname(value)
-
-	# Preserve current Chatbox behavior immediately.
-	if chatbox != null:
-		chatbox.charname = Global.charname

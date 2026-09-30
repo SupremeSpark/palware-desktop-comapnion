@@ -26,8 +26,8 @@ Always end your message with '<message sent to user>' in a new line
 
 var lm_host: String = "127.0.0.1"
 var lm_port: int = 1234
-var lm_chat_endpoint: String = "/v1/chat/completions"
 var lm_model: String = "gemma-4-e4b-uncensored-hauhaucs-aggressive@q5_k_m"
+var lm_chat_endpoint: String = "/v1/chat/completions"
 var lm_timeout: float = 120.0
 var lm_temperature: float = 0.7
 
@@ -54,7 +54,6 @@ const SETTINGS_PATH := "user://settings.cfg"
 func _ready() -> void:
 	load_settings()
 
-
 # ============================================================
 # SAVE / LOAD
 # ============================================================
@@ -62,19 +61,24 @@ func _ready() -> void:
 func save_settings() -> void:
 	var config := ConfigFile.new()
 
-	# Identity
-	config.set_value("identity", "username", username)
-	config.set_value("identity", "charname", charname)
-
-	# LLM
-	config.set_value("llm", "prompt_main", prompt_main)
+	# Connection
 	config.set_value("llm", "host", lm_host)
 	config.set_value("llm", "port", lm_port)
-	config.set_value("llm", "chat_endpoint", lm_chat_endpoint)
 	config.set_value("llm", "model", lm_model)
+	config.set_value("llm", "chat_endpoint", lm_chat_endpoint)
+	
+	# Generation
 	config.set_value("llm", "timeout", lm_timeout)
 	config.set_value("llm", "temperature", lm_temperature)
-
+	
+	# Prompt
+	config.set_value("identity", "username", username)
+	config.set_value("identity", "charname", charname)
+	config.set_value("llm", "prompt_main", prompt_main)
+	
+	# Memory
+	#none for now
+	
 	# Audio
 	config.set_value("audio", "master_volume", master_volume)
 
@@ -99,19 +103,24 @@ func load_settings() -> void:
 		# First launch: keep the defaults above.
 		return
 
-	# Identity
-	username = config.get_value("identity", "username", username)
-	charname = config.get_value("identity", "charname", charname)
-
-	# LLM
-	prompt_main = config.get_value("llm", "prompt_main", prompt_main)
+	# Connection
 	lm_host = config.get_value("llm", "host", lm_host)
 	lm_port = config.get_value("llm", "port", lm_port)
-	lm_chat_endpoint = config.get_value("llm", "chat_endpoint", lm_chat_endpoint)
 	lm_model = config.get_value("llm", "model", lm_model)
+	lm_chat_endpoint = config.get_value("llm", "chat_endpoint", lm_chat_endpoint)
+	
+	# Generation
 	lm_timeout = config.get_value("llm", "timeout", lm_timeout)
 	lm_temperature = config.get_value("llm", "temperature", lm_temperature)
-
+	
+	# Prompt
+	username = config.get_value("identity", "username", username)
+	charname = config.get_value("identity", "charname", charname)
+	prompt_main = config.get_value("llm", "prompt_main", prompt_main)
+	
+	# Memory
+	#none for now
+	
 	# Audio
 	master_volume = config.get_value("audio", "master_volume", master_volume)
 
@@ -132,12 +141,10 @@ func set_prompt(value: String) -> void:
 	save_settings()
 	setting_changed.emit("prompt_main")
 
-
 func set_username(value: String) -> void:
 	username = value
 	save_settings()
 	setting_changed.emit("username")
-
 
 func set_charname(value: String) -> void:
 	charname = value

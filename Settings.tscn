@@ -25,10 +25,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bvb5x")
-current_tab = 2
+current_tab = 0
 
 [node name="Connection" type="TabBar" parent="TabContainer" unique_id=477410764]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -53,13 +52,23 @@ placeholder_text = "Host"
 layout_mode = 2
 placeholder_text = "Port"
 
+[node name="Model" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1818935594]
+layout_mode = 2
+placeholder_text = "Model"
+
 [node name="ChatEndpoint" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=394243622]
 layout_mode = 2
 placeholder_text = "Chat Endpoint"
 
-[node name="Model" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1818935594]
+[node name="TimeoutSecLabel" type="Label" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1247155234]
 layout_mode = 2
-placeholder_text = "Model"
+text = "Current: (5) seconds"
+
+[node name="TimeoutSec" type="HSlider" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=965943813]
+layout_mode = 2
+min_value = 5.0
+max_value = 120.0
+value = 50.0
 
 [node name="Generation" type="TabBar" parent="TabContainer" unique_id=1859944885]
 visible = false
@@ -126,6 +135,7 @@ popup/item_1/text = "Profile2"
 popup/item_1/id = 1
 
 [node name="Prompt" type="TabBar" parent="TabContainer" unique_id=1234290099]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -340,6 +350,20 @@ visible = false
 layout_mode = 2
 text = "Color Adjustments"
 
+[connection signal="text_submitted" from="TabContainer/Connection/ScrollContainer/VBoxContainer/Host" to="." method="host"]
+[connection signal="text_submitted" from="TabContainer/Connection/ScrollContainer/VBoxContainer/Port" to="." method="port"]
+[connection signal="text_submitted" from="TabContainer/Connection/ScrollContainer/VBoxContainer/Model" to="." method="model"]
+[connection signal="text_submitted" from="TabContainer/Connection/ScrollContainer/VBoxContainer/ChatEndpoint" to="." method="chat_endpoint"]
+[connection signal="value_changed" from="TabContainer/Connection/ScrollContainer/VBoxContainer/TimeoutSec" to="." method="timeout_sec"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Context Length" to="." method="context_length"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Max Response Length" to="." method="max_response_length"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Temperature" to="." method="temperature"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Top P" to="." method="top_p"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Top K" to="." method="top_k"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Min P" to="." method="min_p"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Typical P" to="." method="typical_p"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Repetition Penalty" to="." method="repetition_penalty"]
+[connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Seed" to="." method="seed"]
 [connection signal="text_submitted" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/UserName" to="." method="change_username"]
 [connection signal="text_submitted" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/CharName" to="." method="change_charname"]
 [connection signal="text_changed" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/PromptMain" to="." method="_on_prompt_main_text_changed"]
