@@ -351,9 +351,6 @@ layout_mode = 2
 text = "Color Adjustments"
 
 [connection signal="text_submitted" from="TabContainer/Connection/ScrollContainer/VBoxContainer/Host" to="." method="host"]
-[connection signal="text_submitted" from="TabContainer/Connection/ScrollContainer/VBoxContainer/Port" to="." method="port"]
-[connection signal="text_submitted" from="TabContainer/Connection/ScrollContainer/VBoxContainer/Model" to="." method="model"]
-[connection signal="text_submitted" from="TabContainer/Connection/ScrollContainer/VBoxContainer/ChatEndpoint" to="." method="chat_endpoint"]
 [connection signal="value_changed" from="TabContainer/Connection/ScrollContainer/VBoxContainer/TimeoutSec" to="." method="timeout_sec"]
 [connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Context Length" to="." method="context_length"]
 [connection signal="text_submitted" from="TabContainer/Generation/ScrollContainer/VBoxContainer/Max Response Length" to="." method="max_response_length"]
