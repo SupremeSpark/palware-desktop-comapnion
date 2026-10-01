@@ -14,6 +14,10 @@ extends Control
 @onready var prompt_main: TextEdit = $TabContainer/Prompt/ScrollContainer/VBoxContainer/PromptMain
 @onready var player_cam = get_tree().current_scene.get_node("Camera3D")
 # @onready var environment: Environment = get_tree().current_scene.get_node("WorldEnviroment").environment
+
+# Epic labels
+@onready var layer1_label: Label = $"TabContainer/Memory/ScrollContainer/VBoxContainer/Layer1Label"
+@onready var layer2_label: Label = $"TabContainer/Memory/ScrollContainer/VBoxContainer/Layer2Label"
 @onready var fps_label: Label = $"TabContainer/Visuals/ScrollContainer/VBoxContainer/FpsLabel"
 @onready var fov_label: Label = $"TabContainer/Visuals/ScrollContainer/VBoxContainer/FovLabel"
 @onready var mastervolume_label: Label = $TabContainer/Audio/ScrollContainer/VBoxContainer/MasterVolumeLabel
@@ -150,9 +154,29 @@ func _on_prompt_main_text_changed() -> void:
 	print("[Settings] AI prompt updated")
 
 # ============================================================
-# Memory
+# MEMORY SETTINGS
 # ============================================================
-#nothing lmao
+
+func set_memory_enabled(value: bool) -> void:
+	Global.set_memory_enabled(value)
+	print("[Settings] Memory enabled: ", Global.memory_enabled)
+
+func set_raw_memory_recall(value: int) -> void:
+	Global.set_raw_memory_recall(value)
+	layer1_label.text = "Vividly remembers last " + str(value/2) + " exchanges"
+	print("[Settings] Raw memory recall: ", Global.raw_memory_recall)
+
+func set_sum_memory_recall(value: int) -> void:
+	Global.set_sum_memory_recall(value)
+	layer2_label.text = "Vaguely remembers " + str(value/2) + " MORE exchanges"
+	print("[Settings] Summerized memory recall: ", Global.sum_memory_recall)
+
+func clear_memory() -> void:
+	MemoryManager.clear_memory()
+	print("[Settings] Rolling memory cleared.")
+
+func get_memory_count() -> int:
+	return MemoryManager.get_memory_count()
 
 # ============================================================
 # AUDIO

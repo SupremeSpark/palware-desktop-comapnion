@@ -25,9 +25,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bvb5x")
-current_tab = 0
+current_tab = 3
 
 [node name="Connection" type="TabBar" parent="TabContainer" unique_id=477410764]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -68,7 +69,7 @@ text = "Current: (5) seconds"
 layout_mode = 2
 min_value = 5.0
 max_value = 120.0
-value = 50.0
+value = 120.0
 
 [node name="Generation" type="TabBar" parent="TabContainer" unique_id=1859944885]
 visible = false
@@ -173,7 +174,6 @@ placeholder_text = "Put your prompt here"
 scroll_fit_content_height = true
 
 [node name="Memory" type="TabBar" parent="TabContainer" unique_id=1969183674]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
@@ -190,11 +190,29 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Header" type="Label" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1604311041]
+[node name="MemoryToggle" type="CheckButton" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=2048230110]
 layout_mode = 2
-text = "button that does nothing lmao (just close the game to reset memory)"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Memory Toggle"
+
+[node name="Layer1Label" type="Label" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=762430434]
+layout_mode = 2
+text = "Vividly remembers the last: X exchanges"
+
+[node name="SetLayer1" type="HSlider" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1124667412]
+layout_mode = 2
+max_value = 40.0
+step = 2.0
+value = 10.0
+
+[node name="Layer2Label" type="Label" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=2015777125]
+layout_mode = 2
+text = "Vaguely remembers X MORE exchanges"
+
+[node name="SetLayer2" type="HSlider" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1061842353]
+layout_mode = 2
+max_value = 80.0
+step = 2.0
+value = 20.0
 
 [node name="ClearHistory" type="Button" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1942049762]
 layout_mode = 2
@@ -231,6 +249,11 @@ text = "master volume"
 [node name="MasterVolume" type="HSlider" parent="TabContainer/Audio/ScrollContainer/VBoxContainer" unique_id=1740239723]
 layout_mode = 2
 value = 50.0
+
+[node name="SSAO" type="CheckButton" parent="TabContainer/Audio/ScrollContainer/VBoxContainer" unique_id=726078336]
+visible = false
+layout_mode = 2
+text = "SSAO"
 
 [node name="Visuals" type="TabBar" parent="TabContainer" unique_id=2140315048]
 visible = false
@@ -364,6 +387,10 @@ text = "Color Adjustments"
 [connection signal="text_submitted" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/UserName" to="." method="change_username"]
 [connection signal="text_submitted" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/CharName" to="." method="change_charname"]
 [connection signal="text_changed" from="TabContainer/Prompt/ScrollContainer/VBoxContainer/PromptMain" to="." method="_on_prompt_main_text_changed"]
+[connection signal="toggled" from="TabContainer/Memory/ScrollContainer/VBoxContainer/MemoryToggle" to="." method="set_memory_enabled"]
+[connection signal="value_changed" from="TabContainer/Memory/ScrollContainer/VBoxContainer/SetLayer1" to="." method="set_raw_memory_recall"]
+[connection signal="value_changed" from="TabContainer/Memory/ScrollContainer/VBoxContainer/SetLayer2" to="." method="set_sum_memory_recall"]
+[connection signal="toggled" from="TabContainer/Memory/ScrollContainer/VBoxContainer/ClearHistory" to="." method="clear_memory"]
 [connection signal="value_changed" from="TabContainer/Audio/ScrollContainer/VBoxContainer/MasterVolume" to="." method="master_volume"]
 [connection signal="value_changed" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/3DScaling" to="." method="scaling_3d"]
 [connection signal="item_selected" from="TabContainer/Visuals/ScrollContainer/VBoxContainer/AntiAliasing" to="." method="aa"]
