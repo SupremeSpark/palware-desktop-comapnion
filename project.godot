@@ -13,7 +13,7 @@ config_version=5
 config/name="Palware"
 run/main_scene="uid://cmkevbewulcpd"
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://UI Resources/icon.svg"
 
 [autoload]
 
@@ -41,6 +41,11 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/clickthrough/plugin.cfg", "res://addons/godot-resizable-main/addons/eranot.resizable/plugin.cfg")
+
+[gui]
+
+theme/custom="uid://cd0xlbcivdkk5"
+theme/custom_font="uid://cftt1p5qkasi8"
 
 [physics]
 

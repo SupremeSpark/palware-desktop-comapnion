@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ylgljjkhrxvc"
-path="res://.godot/imported/kenvector_future.ttf-79b20addcae7a6a233ac2e2163d82bab.fontdata"
+uid="uid://cftt1p5qkasi8"
+path="res://.godot/imported/Pixellettersfull-BnJ5.ttf-a96921f06dd99dfafea5488e60e68c83.fontdata"
 
 [deps]
 
-source_file="res://kenvector_future.ttf"
-dest_files=["res://.godot/imported/kenvector_future.ttf-79b20addcae7a6a233ac2e2163d82bab.fontdata"]
+source_file="res://UI Resources/Pixellettersfull-BnJ5.ttf"
+dest_files=["res://.godot/imported/Pixellettersfull-BnJ5.ttf-a96921f06dd99dfafea5488e60e68c83.fontdata"]
 
 [params]
 
@@ -30,7 +30,12 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
 language_support={}
 script_support={}
 opentype_features={}

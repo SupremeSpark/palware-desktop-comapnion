@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://nsutqsnukuy" path="res://chatbox.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cn8vd18md8dws" path="res://Settings.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://1c1070oh643w" path="res://addons/godot-resizable-main/addons/eranot.resizable/resizable.gd" id="4_1bvp3"]
+[ext_resource type="Theme" uid="uid://cd0xlbcivdkk5" path="res://UI Resources/vaporwave_sunset.tres" id="5_272bh"]
 [ext_resource type="Script" uid="uid://c5sdd4eq436ra" path="res://addons/clickthrough/nodes/clickthrough_gdscript/clickthrough_gdscript.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://crlids4tnf8tp" path="res://addons/clickthrough/detection/transparent/transparent_detector.gd" id="6_7mycd"]
 
@@ -53,11 +54,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -109.0
+offset_left = -75.0
 offset_top = 5.0
 offset_right = -20.0
-offset_bottom = 79.0
+offset_bottom = 43.0
 grow_horizontal = 0
+text = "Settings"
 
 [node name="Resizeable" type="Control" parent="MainUI/Chatbox" unique_id=1347304735]
 layout_mode = 1
@@ -67,6 +69,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("5_272bh")
 script = ExtResource("4_1bvp3")
 
 [node name="Settings Pannel" parent="MainUI" unique_id=881311679 instance=ExtResource("3_h2yge")]
@@ -88,11 +91,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -57.0
-offset_top = -22.0
-offset_right = 32.0
-offset_bottom = 52.0
+offset_left = -106.0
+offset_top = -1.0
+offset_right = -20.0
+offset_bottom = 28.0
 grow_horizontal = 0
+text = "Close Settings"
 
 [node name="Resizeable" type="Control" parent="MainUI/Settings Pannel" unique_id=929098988]
 layout_mode = 1

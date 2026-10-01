@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.091614224, 0.53798825, 0.56311744, 0.2901961)
+color = Color(0.4418984, 0.99999994, 0.9202127, 0.1764706)
 
 [node name="LMStudio" type="Node" parent="." unique_id=1478034608]
 script = ExtResource("2_2nilb")

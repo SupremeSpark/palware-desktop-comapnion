@@ -1,7 +1,29 @@
 [gd_scene format=3 uid="uid://cn8vd18md8dws"]
 
 [ext_resource type="Script" uid="uid://da88d3lqa5t7j" path="res://settings.gd" id="1_2fv1l"]
-[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://kenneyUI-blue.tres" id="1_bvb5x"]
+
+[sub_resource type="Theme" id="Theme_3fcsw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvb5x"]
+content_margin_left = 18.0
+content_margin_top = 18.0
+content_margin_right = 18.0
+content_margin_bottom = 18.0
+bg_color = Color(0.13331491, 0.00019014053, 0.35189408, 0.28235295)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.003921569, 0.8039216, 0.99607843, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(1, 0.44313726, 0.80784315, 0.22)
+shadow_size = 14
+
+[sub_resource type="SystemFont" id="SystemFont_a6ilp"]
+subpixel_positioning = 0
 
 [node name="Settings Pannel" type="Control" unique_id=881311679]
 process_mode = 3
@@ -14,22 +36,28 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+theme = SubResource("Theme_3fcsw")
 script = ExtResource("1_2fv1l")
-metadata/_edit_use_anchors_ = true
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=268909724]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 1.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_bvb5x")
-current_tab = 3
+theme = SubResource("Theme_3fcsw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bvb5x")
+current_tab = 5
 
 [node name="Connection" type="TabBar" parent="TabContainer" unique_id=477410764]
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 metadata/_tab_index = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Connection" unique_id=1970228556]
@@ -39,34 +67,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_3fcsw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Connection/ScrollContainer" unique_id=195475852]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_3fcsw")
 
 [node name="Host" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=199074984]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
+theme_override_fonts/font = SubResource("SystemFont_a6ilp")
 placeholder_text = "Host"
 
 [node name="Port" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1935273245]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 placeholder_text = "Port"
 
 [node name="Model" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1818935594]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 placeholder_text = "Model"
 
 [node name="ChatEndpoint" type="LineEdit" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=394243622]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 placeholder_text = "Chat Endpoint"
 
 [node name="TimeoutSecLabel" type="Label" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=1247155234]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 text = "Current: (5) seconds"
 
 [node name="TimeoutSec" type="HSlider" parent="TabContainer/Connection/ScrollContainer/VBoxContainer" unique_id=965943813]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 min_value = 5.0
 max_value = 120.0
 value = 120.0
@@ -74,6 +111,7 @@ value = 120.0
 [node name="Generation" type="TabBar" parent="TabContainer" unique_id=1859944885]
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 metadata/_tab_index = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Generation" unique_id=150406144]
@@ -138,6 +176,7 @@ popup/item_1/id = 1
 [node name="Prompt" type="TabBar" parent="TabContainer" unique_id=1234290099]
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 metadata/_tab_index = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Prompt" unique_id=264652336]
@@ -174,7 +213,9 @@ placeholder_text = "Put your prompt here"
 scroll_fit_content_height = true
 
 [node name="Memory" type="TabBar" parent="TabContainer" unique_id=1969183674]
+visible = false
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 metadata/_tab_index = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Memory" unique_id=1029962698]
@@ -184,43 +225,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_3fcsw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Memory/ScrollContainer" unique_id=2107637635]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_3fcsw")
 
 [node name="MemoryToggle" type="CheckButton" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=2048230110]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
+button_pressed = true
 text = "Memory Toggle"
 
 [node name="Layer1Label" type="Label" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=762430434]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 text = "Vividly remembers the last: X exchanges"
 
 [node name="SetLayer1" type="HSlider" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1124667412]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 max_value = 40.0
 step = 2.0
 value = 10.0
 
 [node name="Layer2Label" type="Label" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=2015777125]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 text = "Vaguely remembers X MORE exchanges"
 
 [node name="SetLayer2" type="HSlider" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1061842353]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 max_value = 80.0
 step = 2.0
 value = 20.0
 
 [node name="ClearHistory" type="Button" parent="TabContainer/Memory/ScrollContainer/VBoxContainer" unique_id=1942049762]
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 text = "Clear History"
 
 [node name="Audio" type="TabBar" parent="TabContainer" unique_id=1196223982]
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 metadata/_tab_index = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Audio" unique_id=1244480360]
@@ -256,8 +307,8 @@ layout_mode = 2
 text = "SSAO"
 
 [node name="Visuals" type="TabBar" parent="TabContainer" unique_id=2140315048]
-visible = false
 layout_mode = 2
+theme = SubResource("Theme_3fcsw")
 metadata/_tab_index = 5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Visuals" unique_id=1730722467]
@@ -285,10 +336,10 @@ text = "3d scaling render"
 
 [node name="3DScaling" type="HSlider" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=132217872]
 layout_mode = 2
-min_value = 0.25
+min_value = 0.15
 max_value = 1.0
 step = 0.05
-value = 0.25
+value = 1.0
 
 [node name="Label2" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=1392899109]
 layout_mode = 2
@@ -319,7 +370,7 @@ text = "FPS (current: n/a)"
 layout_mode = 2
 min_value = 15.0
 max_value = 165.0
-value = 144.0
+value = 120.0
 
 [node name="Label3" type="Label" parent="TabContainer/Visuals/ScrollContainer/VBoxContainer" unique_id=436650863]
 layout_mode = 2
