@@ -23,22 +23,7 @@ extends Node
 
 const MEMORY_PATH := "user://memory.json"
 
-
-# Maximum number of messages we physically keep in the file.
-#
-# This is different from Global.raw_memory_recall.
-#
-# Example:
-#
-# raw_memory_recall = 5
-#
-# means only 5 are sent to the AI.
-#
-# MAX_STORED_MESSAGES = 2000
-#
-# means up to 2000 can remain in memory.json.
 const MAX_STORED_MESSAGES := 2000
-
 
 # ============================================================
 # MEMORY DATA
@@ -276,9 +261,7 @@ func load_memory() -> void:
 # ============================================================
 
 func clear_memory() -> void:
-
 	messages.clear()
-
 
 	if FileAccess.file_exists(
 		MEMORY_PATH

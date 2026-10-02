@@ -52,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_3fcsw")
 theme_override_styles/panel = SubResource("StyleBoxFlat_bvb5x")
-current_tab = 5
+current_tab = 2
 
 [node name="Connection" type="TabBar" parent="TabContainer" unique_id=477410764]
 visible = false
@@ -174,7 +174,6 @@ popup/item_1/text = "Profile2"
 popup/item_1/id = 1
 
 [node name="Prompt" type="TabBar" parent="TabContainer" unique_id=1234290099]
-visible = false
 layout_mode = 2
 theme = SubResource("Theme_3fcsw")
 metadata/_tab_index = 2
@@ -307,6 +306,7 @@ layout_mode = 2
 text = "SSAO"
 
 [node name="Visuals" type="TabBar" parent="TabContainer" unique_id=2140315048]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_3fcsw")
 metadata/_tab_index = 5

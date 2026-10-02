@@ -137,7 +137,6 @@ func seed(value):
 # ============================================================
 func change_username(value):
 	Global.set_username(value)
-
 	# Preserve current Chatbox behavior immediately.
 	if chatbox != null:
 		chatbox.username = Global.username
@@ -156,7 +155,6 @@ func _on_prompt_main_text_changed() -> void:
 # ============================================================
 # MEMORY SETTINGS
 # ============================================================
-
 func set_memory_enabled(value: bool) -> void:
 	Global.set_memory_enabled(value)
 	print("[Settings] Memory enabled: ", Global.memory_enabled)
